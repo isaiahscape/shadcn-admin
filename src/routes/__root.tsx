@@ -6,13 +6,14 @@ import { Toaster } from '@/components/ui/sonner'
 import { NavigationProgress } from '@/components/navigation-progress'
 import { GeneralError } from '@/features/errors/general-error'
 import { NotFoundError } from '@/features/errors/not-found-error'
+import { MikrotikProvider } from '@/features/mikrotik/mikrotik-provider'
 
 export const Route = createRootRouteWithContext<{
   queryClient: QueryClient
 }>()({
   component: () => {
     return (
-      <>
+      <MikrotikProvider>
         <NavigationProgress />
         <Outlet />
         <Toaster duration={5000} />
@@ -22,7 +23,7 @@ export const Route = createRootRouteWithContext<{
             <TanStackRouterDevtools position='bottom-right' />
           </>
         )}
-      </>
+      </MikrotikProvider>
     )
   },
   notFoundComponent: NotFoundError,

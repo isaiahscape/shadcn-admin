@@ -11,9 +11,11 @@ import { sidebarData } from './data/sidebar-data'
 import { NavGroup } from './nav-group'
 import { NavUser } from './nav-user'
 import { TeamSwitcher } from './team-switcher'
+import { MikrotikSidebarWidget } from '@/features/mikrotik/mikrotik-sidebar-widget'
 
 export function AppSidebar() {
   const { collapsible, variant } = useLayout()
+
   return (
     <Sidebar collapsible={collapsible} variant={variant}>
       <SidebarHeader>
@@ -29,6 +31,7 @@ export function AppSidebar() {
         ))}
       </SidebarContent>
       <SidebarFooter>
+        <MikrotikSidebarWidget />
         <NavUser user={sidebarData.user} />
       </SidebarFooter>
       <SidebarRail />
